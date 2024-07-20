@@ -1,9 +1,6 @@
 <main>
   <h1>Ruans Flash Cards</h1>
 
-  <app-card *ngFor="card of deck, track deck, let i = index" [question]="deck[i].question"
-    [answer]="deck[i].answer"></app-card>
-
-
+  <app-card *ngFor="let card of deck | keyvalue" [card]="card.value"></app-card>
 
   <router-outlet></router-outlet>
