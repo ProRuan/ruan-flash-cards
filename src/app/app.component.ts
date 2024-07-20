@@ -50,20 +50,27 @@ export class AppComponent {
     if (this.id) {
       console.log(this.id);
     }
-    // this.addDeck();    // I. check
+    // this.addDeck(); // I. check
     // await this.getWholeDeck();    // check
     await this.getDeck(); // II. check
-    this.updateDeck(); // III. check
+    // this.updateDeck(); // III. check
     // this.deleteDeck();    // IV. check
   }
 
   async addDeck() {
-    await addDoc(collection(this.firestore, 'deck'), this.deck);
+    // params deckName + deck
+    // get ref
+    await addDoc(collection(this.firestore, 'test'), this.deck).then(
+      (docRef) => {
+        console.log(docRef.id); //p4eZcO5QV43IYnigxALJ
+      }
+    );
     console.log('added deck: ', this.deck);
   }
 
   async getWholeDeck() {
     const querySnapshot = await getDocs(collection(this.firestore, 'deck'));
+    console.log('snapshot: ', querySnapshot);
     querySnapshot.forEach((doc) => {
       // console.log(`${doc.id} => ${doc.data()}`);
       this.id = doc.id;
@@ -72,9 +79,15 @@ export class AppComponent {
   }
 
   async getDeck() {
+    // get deck, doc or value
     const docRef = doc(this.firestore, 'deck', this.id);
     const docSnap = await getDoc(docRef);
     console.log('get deck: ', docSnap.data());
+    console.log('deck id: ', docRef.id);
+    if (docRef.id) {
+      console.log('id already existing');
+      
+    }
 
     let tempDeck = docSnap.data();
     this.deck = tempDeck;
@@ -85,6 +98,8 @@ export class AppComponent {
   }
 
   async updateDeck() {
+    // params value
+    // update deck, doc or value
     let cardRef = doc(this.firestore, 'deck', this.id);
     console.log('update: ', cardRef);
 
@@ -95,6 +110,7 @@ export class AppComponent {
   }
 
   async deleteDeck() {
+    // delete doc or value
     await deleteDoc(doc(this.firestore, 'deck', this.id));
   }
 
