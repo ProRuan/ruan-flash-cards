@@ -12,11 +12,12 @@ import {
   deleteDoc,
 } from 'firebase/firestore';
 import { docData, Firestore } from '@angular/fire/firestore';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, CardComponent],
+  imports: [CommonModule, RouterOutlet, CardComponent, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

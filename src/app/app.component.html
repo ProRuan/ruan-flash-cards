@@ -1,6 +1,19 @@
 <main>
   <h1>Ruans Flash Cards</h1>
   <app-card *ngFor="let card of deck | keyvalue" [card]="card.value"></app-card>
+
+  <button>
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <button>
+    <mat-icon>edit</mat-icon>
+  </button>
+
+  <button>
+    <mat-icon>delete</mat-icon>
+  </button>
+
 </main>
 
 <router-outlet></router-outlet>
