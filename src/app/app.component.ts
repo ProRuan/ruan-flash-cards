@@ -86,7 +86,6 @@ export class AppComponent {
     console.log('deck id: ', docRef.id);
     if (docRef.id) {
       console.log('id already existing');
-      
     }
 
     let tempDeck = docSnap.data();
@@ -116,20 +115,25 @@ export class AppComponent {
 
   // Modul 13
   // --------
-  // font einbinden
-  // @mixin
-  // interfaces
-  // pop()
+  // font einbinden - check
+  // @mixin - check
+  // interfaces - check
+  // pop() - check
 
   // Modul 14
   // --------
-  // for, if, if-else, switch
-  // ngStyle, ngClass
-  // input, click, output
-  // services
+  // for, if, if-else, switch - check
+  // ngStyle, ngClass, ternary - check
+  // input, click, output - check
+  // ngModel - open (createCardContent)
+  // services - open (cardsService)
+  // --> provides the cards, markedCards, favCards, ...
 
   // Modul 15
   // --------
-  // collection, doc
-  // collectionData, onSnapshot
+  // collection, doc - check
+  // collectionData, onSnapshot - check
+  // subscribe, unsubscribe - check
+  // where, orderBy, limit - check
+  // docChanges - check
 }
